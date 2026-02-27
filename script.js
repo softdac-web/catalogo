@@ -49,8 +49,13 @@ function abrirModal(producto) {
     });
     document.getElementById("modalGaleria").innerHTML = galeriaHTML;
 
+    // Campo para cantidad
+    document.getElementById("cantidad").value = 1; // Resetea el valor de la cantidad al abrir el modal
+
     // Configurar WhatsApp
-    const mensaje = `Hola, quiero consultar por: ${producto.nombre}`;
+    const cantidad = document.getElementById("cantidad").value || 1; // Si no hay cantidad, toma "1" por defecto.
+    const mensaje = `Hola, quiero consultar por el producto: ${producto.nombre}. Cantidad: ${cantidad}`;
+
     document.getElementById("whatsappBtn").href = `https://wa.me/5493404409525?text=${encodeURIComponent(mensaje)}`;
 }
 
@@ -58,6 +63,7 @@ function cerrarModal() {
     document.getElementById("modal").style.display = "none";
 
 }
+
 
 
 
