@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo Lácteos</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<header>
+    <h1>Catálogo de Productos Lácteos</h1>
+    <input type="text" id="buscador" placeholder="Buscar producto...">
+    
+    <div class="filtros">
+        <button onclick="filtrar('Todos')">Todos</button>
+        <button onclick="filtrar('Leche')">Leche</button>
+        <button onclick="filtrar('Quesos')">Quesos</button>
+        <button onclick="filtrar('Yogures')">Yogures</button>
+        <button onclick="filtrar('Manteca')">Manteca</button>
+        <button onclick="filtrar('Dulce de leche')">Dulce de leche</button>
+    </div>
+</header>
+
+<main id="contenedorProductos"></main>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="cerrar" onclick="cerrarModal()">&times;</span>
+        <img id="modalImagen">
+        <h2 id="modalNombre"></h2>
+        <p id="modalDescripcion"></p>
+        <a id="whatsappBtn" target="_blank">Consultar por WhatsApp</a>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

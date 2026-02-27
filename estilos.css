@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f4f4;
+}
+
+header {
+    background: #0d6efd;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+#buscador {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+}
+
+.filtros button {
+    margin: 5px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 15px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+    background: white;
+    margin: 10% auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.modal-content img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.cerrar {
+    float: right;
+    cursor: pointer;
+    font-size: 22px;
+}
+
+#whatsappBtn {
+    display: block;
+    margin-top: 15px;
+    background: #25D366;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+}
