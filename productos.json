@@ -3,7 +3,7 @@
     "nombre": "Leche Entera",
     "categoria": "Leche",
     "descripcion": "Leche entera pasteurizada de alta calidad.",
-    "imagen": "https://via.placeholder.com/300"
+    "imagen": "imagenes/logo.jpg"
   },
   {
     "nombre": "Queso Cremoso",
@@ -23,4 +23,5 @@
     "descripcion": "Dulce de leche tradicional argentino.",
     "imagen": "https://via.placeholder.com/300"
   }
+
 ]
