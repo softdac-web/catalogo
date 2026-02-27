@@ -3,27 +3,19 @@
     "nombre": "Leche Entera",
     "categoria": "Leche",
     "descripcion": "Leche entera pasteurizada de alta calidad.",
-    "imagen": "imagenes/logo.jpg"
+    "imagenes": [
+      "imagenes/logo.jpg",
+      "imagenes/prueba_perfil.jpg",
+      "imagenes/logo.jpg"
+    ]
   },
   {
     "nombre": "Queso Cremoso",
     "categoria": "Quesos",
     "descripcion": "Queso cremoso ideal para sandwiches y pizzas.",
-    "imagen": "imagenes/prueba_perfil.jpg"
-  },
-  {
-    "nombre": "Yogur Natural",
-    "categoria": "Yogures",
-    "descripcion": "Yogur natural sin azúcar agregada.",
-    "imagen": "imagenes/logo.jpg"
-  },
-  {
-    "nombre": "Dulce de Leche",
-    "categoria": "Dulce de leche",
-    "descripcion": "Dulce de leche tradicional argentino.",
-    "imagen": "imagenes/logo.jpg"
+    "imagenes": [
+      "imagenes/prueba_perfil.jpg",
+      "imagenes/logo.jpg"
+    ]
   }
-
 ]
-
-
