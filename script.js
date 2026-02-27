@@ -49,20 +49,22 @@ function abrirModal(producto) {
     });
     document.getElementById("modalGaleria").innerHTML = galeriaHTML;
 
-    // Campo para cantidad
-    document.getElementById("cantidad").value = 1; // Resetea el valor de la cantidad al abrir el modal
+    // Resetear cantidad cuando se abre el modal
+    document.getElementById("cantidad").value = 1; // Valor inicial de la cantidad
 
-    // Configurar WhatsApp
-    const cantidad = document.getElementById("cantidad").value || 1; // Si no hay cantidad, toma "1" por defecto.
-    const mensaje = `Hola, quiero consultar por el producto: ${producto.nombre}. Cantidad: ${cantidad}`;
-
-    document.getElementById("whatsappBtn").href = `https://wa.me/5493404409525?text=${encodeURIComponent(mensaje)}`;
+    // Configurar WhatsApp (obtenemos el valor de la cantidad cuando se hace clic en el enlace)
+    document.getElementById("whatsappBtn").addEventListener("click", function() {
+        const cantidad = document.getElementById("cantidad").value || 1; // Obtenemos el valor de la cantidad
+        const mensaje = `Hola, quiero consultar por el producto: ${producto.nombre}. Cantidad: ${cantidad}`;
+        this.href = `https://wa.me/5493404409525?text=${encodeURIComponent(mensaje)}`; // Generamos el enlace con la cantidad
+    });
 }
 
 function cerrarModal() {
     document.getElementById("modal").style.display = "none";
 
 }
+
 
 
 
