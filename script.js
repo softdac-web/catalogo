@@ -42,10 +42,18 @@ function abrirModal(producto) {
     document.getElementById("modalNombre").innerText = producto.nombre;
     document.getElementById("modalDescripcion").innerText = producto.descripcion;
     
-    const mensaje = `Hola, quiero consultar por: ${producto.nombre}`;
-    document.getElementById("whatsappBtn").href = `https://wa.me/TU_NUMERO?text=${encodeURIComponent(mensaje)}`;
+    const mensaje = `Hola! 👋
+Quiero consultar por el producto:
+🧀 ${producto.nombre}
+
+¿Me podés informar disponibilidad para mi zona?
+Gracias!`;
+
+    document.getElementById("whatsappBtn").href =
+        `https://wa.me/TU_NUMERO?text=${encodeURIComponent(mensaje)}`;
 }
 
 function cerrarModal() {
     document.getElementById("modal").style.display = "none";
+
 }
