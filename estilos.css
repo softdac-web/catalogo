@@ -86,10 +86,13 @@ main {
 
 .modal-content {
     background: white;
-    margin: 15% auto;
+    margin: 10% auto;
     padding: 20px;
     width: 90%;
-    max-width: 400px;
+    max-width: 600px;
+    height: auto;
+    max-height: 80vh; /* Limita la altura */
+    overflow-y: auto; /* Agrega scroll si el contenido excede */
     border-radius: 15px;
     text-align: center;
     animation: aparecer 0.3s ease;
@@ -134,7 +137,7 @@ main {
 
 .modal-imagen {
     width: 100%;
-    max-width: 400px;
+    max-width: 100%;
     margin-bottom: 15px;
     border-radius: 8px;
     transition: transform 0.3s ease;
