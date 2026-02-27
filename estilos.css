@@ -90,7 +90,6 @@ main {
     padding: 20px;
     width: 90%;
     max-width: 600px;
-    height: auto;
     max-height: 80vh; /* Limita la altura */
     overflow-y: auto; /* Agrega scroll si el contenido excede */
     border-radius: 15px;
@@ -146,3 +145,14 @@ main {
 .modal-imagen:hover {
     transform: scale(1.05);
 }
+
+input#cantidad {
+    width: 80%;
+    padding: 8px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
