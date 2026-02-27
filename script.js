@@ -12,7 +12,7 @@ function mostrarProductos() {
     const contenedor = document.getElementById("contenedorProductos");
     const textoBusqueda = document.getElementById("buscador").value.toLowerCase();
     
-    contenedor.innerHTML = "";
+    contenedor.innerHTML = ""; // Limpiar contenedor antes de mostrar nuevos productos
 
     productos
         .filter(p => 
@@ -20,9 +20,10 @@ function mostrarProductos() {
             p.nombre.toLowerCase().includes(textoBusqueda)
         )
         .forEach(p => {
+            // Cambié p.imagen por p.imagenes[0] para mostrar la primera imagen del array
             contenedor.innerHTML += `
                 <div class="card" onclick='abrirModal(${JSON.stringify(p)})'>
-                    <img src="${p.imagen}">
+                    <img src="${p.imagenes[0]}" alt="${p.nombre}"> <!-- Ahora mostramos la primera imagen -->
                     <h3>${p.nombre}</h3>
                 </div>
             `;
@@ -57,6 +58,7 @@ function cerrarModal() {
     document.getElementById("modal").style.display = "none";
 
 }
+
 
 
 
