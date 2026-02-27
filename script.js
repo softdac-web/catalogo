@@ -41,13 +41,16 @@ function abrirModal(producto) {
     document.getElementById("modalImagen").src = producto.imagen;
     document.getElementById("modalNombre").innerText = producto.nombre;
     document.getElementById("modalDescripcion").innerText = producto.descripcion;
-    
-    const mensaje = `Hola! 👋
-Quiero consultar por el producto:
-🧀 ${producto.nombre}
 
-¿Me podés informar disponibilidad para mi zona?
-Gracias!`;
+    const cantidad = document.getElementById("cantidad").value || 1;
+    const mensaje = `Hola! 👋
+    Quiero hacer un pedido:
+    
+    🧀 Producto: ${producto.nombre}
+    📦 Cantidad: ${cantidad}
+    
+    ¿Me confirmás disponibilidad para mi zona?
+    Gracias!`;
 
     document.getElementById("whatsappBtn").href =
         `https://wa.me/TU_NUMERO?text=${encodeURIComponent(mensaje)}`;
@@ -57,3 +60,4 @@ function cerrarModal() {
     document.getElementById("modal").style.display = "none";
 
 }
+
