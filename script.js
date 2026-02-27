@@ -55,7 +55,7 @@ function abrirModal(producto) {
     // Configurar WhatsApp (obtenemos el valor de la cantidad cuando se hace clic en el enlace)
     document.getElementById("whatsappBtn").addEventListener("click", function() {
         const cantidad = document.getElementById("cantidad").value || 1; // Obtenemos el valor de la cantidad
-        const mensaje = `Hola, quiero consultar por el producto: ${producto.nombre}. Cantidad: ${cantidad}`;
+        const mensaje = `Hola, quiero consultar por disponibilidad del producto: ${producto.nombre}. Cantidad: ${cantidad}`;
         this.href = `https://wa.me/5493404409525?text=${encodeURIComponent(mensaje)}`; // Generamos el enlace con la cantidad
     });
 }
@@ -64,6 +64,7 @@ function cerrarModal() {
     document.getElementById("modal").style.display = "none";
 
 }
+
 
 
 
