@@ -9,7 +9,7 @@
     "nombre": "Queso Cremoso",
     "categoria": "Quesos",
     "descripcion": "Queso cremoso ideal para sandwiches y pizzas.",
-    "imagen": "imagenes/logo.jpg"
+    "imagen": "imagenes/prueba_perfil.jpg"
   },
   {
     "nombre": "Yogur Natural",
@@ -25,4 +25,5 @@
   }
 
 ]
+
 
