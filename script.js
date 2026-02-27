@@ -53,11 +53,12 @@ function abrirModal(producto) {
     Gracias!`;
 
     document.getElementById("whatsappBtn").href =
-        `https://wa.me/TU_NUMERO?text=${encodeURIComponent(mensaje)}`;
+        `https://wa.me/5493404409525?text=${encodeURIComponent(mensaje)}`;
 }
 
 function cerrarModal() {
     document.getElementById("modal").style.display = "none";
 
 }
+
 
