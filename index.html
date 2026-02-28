@@ -3,45 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Catálogo Lácteos</title>
-<link rel="stylesheet" href="estilos.css">
+<title>Alma Láctea</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-    <h1>Catálogo de Productos Lácteos</h1>
-    <input type="text" id="buscador" placeholder="Buscar producto...">
-    
-    <div class="filtros">
-        <button onclick="filtrar('Todos')">Todos</button>
-        <button onclick="filtrar('Leche')">Leche</button>
-        <button onclick="filtrar('Quesos')">Quesos</button>
-        <button onclick="filtrar('Yogures')">Yogures</button>
-        <button onclick="filtrar('Manteca')">Manteca</button>
-        <button onclick="filtrar('Dulce de leche')">Dulce de leche</button>
-    </div>
+  <img src="Alma Lactea.png" class="logo">
+  <input type="text" id="search" placeholder="Buscar producto...">
 </header>
 
-<main id="contenedorProductos"></main>
+<nav>
+  <button onclick="filtrar('todos')">Todos</button>
+  <button onclick="filtrar('quesos')">Quesos</button>
+  <button onclick="filtrar('cremosos')">Cremosos</button>
+</nav>
 
-<!-- Modal con galería -->
-<div id="modal" class="modal">
-    <div class="modal-content">
-        <span class="cerrar" onclick="cerrarModal()">&times;</span>
-        <div id="modalGaleria"></div>
-        <h2 id="modalNombre"></h2>
-        <p id="modalDescripcion"></p>
-        <!-- Campo para la cantidad -->
-        <input type="number" id="cantidad" placeholder="Cantidad deseada" min="1">
-        <a id="whatsappBtn" target="_blank">Consultar por WhatsApp</a>
-    </div>
+<main id="productos" class="grid"></main>
+
+<!-- Modal -->
+<div id="modal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close" onclick="cerrarModal()">×</span>
+    <h2 id="modal-nombre"></h2>
+    <div id="modal-galeria"></div>
+    <p id="modal-descripcion"></p>
+    <p id="modal-precio"></p>
+    <p id="modal-stock"></p>
+    <input type="number" id="cantidad" min="1" value="1">
+    <button id="btn-agregar" onclick="agregarCarrito()">Agregar</button>
+  </div>
+</div>
+
+<!-- Carrito flotante -->
+<div class="carrito-btn" onclick="toggleCarrito()">
+  🛒 <span id="contador">0</span>
+</div>
+
+<div id="panel-carrito" class="panel hidden">
+  <h3>Tu Pedido</h3>
+  <div id="lista-carrito"></div>
+  <h4 id="total"></h4>
+  <button onclick="enviarWhatsApp()">Finalizar Pedido</button>
 </div>
 
 <script src="script.js"></script>
-<a href="https://wa.me/5493404409525" class="whatsapp-float" target="_blank">💬</a>
 </body>
-
 </html>
-
-
-
