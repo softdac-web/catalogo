@@ -1,73 +1,144 @@
-let productos = [];
-let categoriaActual = "Todos";
+document.addEventListener("DOMContentLoaded", function() {
+  let productos = [];
+  let carrito = [];
+  let actual = null;
 
-fetch('productos.json')
+  const contenedor = document.getElementById("productos");
+  const searchInput = document.getElementById("search");
+  const modal = document.getElementById("modal");
+  const modalNombre = document.getElementById("modal-nombre");
+  const modalDescripcion = document.getElementById("modal-descripcion");
+  const modalPrecio = document.getElementById("modal-precio");
+  const modalStock = document.getElementById("modal-stock");
+  const cantidadInput = document.getElementById("cantidad");
+  const btnAgregar = document.getElementById("btn-agregar");
+  const panelCarrito = document.getElementById("panel-carrito");
+  const listaCarrito = document.getElementById("lista-carrito");
+  const totalSpan = document.getElementById("total");
+  const contador = document.getElementById("contador");
+
+  // Cargar productos desde JSON
+  fetch("productos.json")
     .then(res => res.json())
     .then(data => {
-        productos = data;
-        mostrarProductos();
+      productos = data;
+      mostrar(productos);
+    })
+    .catch(err => console.error("Error cargando productos:", err));
+
+  // Función para mostrar productos en la grilla
+  function mostrar(lista) {
+    contenedor.innerHTML = "";
+    lista.forEach(p => {
+      contenedor.innerHTML += `
+        <div class="card" onclick="abrirModal('${p.codigo}')">
+          <img src="img/${p.codigo}_000.jpg" alt="${p.nombre}" loading="lazy">
+          <h3>${p.nombre}</h3>
+          <p class="precio">$${p.precio}</p>
+          <p class="${p.stock ? 'stock-ok':'stock-no'}">
+            ${p.stock ? 'Disponible':'Sin stock'}
+          </p>
+        </div>
+      `;
     });
+    // Reasignar eventos porque usamos onclick dinámico
+    window.abrirModal = abrirModal;
+  }
 
-function mostrarProductos() {
-    const contenedor = document.getElementById("contenedorProductos");
-    const textoBusqueda = document.getElementById("buscador").value.toLowerCase();
-    
-    contenedor.innerHTML = ""; // Limpiar contenedor antes de mostrar nuevos productos
+  // Función para abrir modal
+  function abrirModal(codigo) {
+    actual = productos.find(p => p.codigo === codigo);
+    if (!actual) return;
 
-    productos
-        .filter(p => 
-            (categoriaActual === "Todos" || p.categoria === categoriaActual) &&
-            p.nombre.toLowerCase().includes(textoBusqueda)
-        )
-        .forEach(p => {
-            // Cambié p.imagen por p.imagenes[0] para mostrar la primera imagen del array
-            contenedor.innerHTML += `
-                <div class="card" onclick='abrirModal(${JSON.stringify(p)})'>
-                    <img src="${p.imagenes[0]}" alt="${p.nombre}"> <!-- Ahora mostramos la primera imagen -->
-                    <h3>${p.nombre}</h3>
-                </div>
-            `;
-        });
-}
+    modalNombre.innerText = actual.nombre;
+    modalDescripcion.innerText = actual.descripcion;
+    modalPrecio.innerText = "$" + actual.precio;
+    modalStock.innerText = actual.stock ? "Disponible" : "Sin stock";
+    btnAgregar.disabled = !actual.stock;
+    cantidadInput.value = 1;
 
-function filtrar(categoria) {
-    categoriaActual = categoria;
-    mostrarProductos();
-}
+    // Galería
+    const galeriaDiv = document.getElementById("modal-galeria");
+    galeriaDiv.innerHTML = "";
+    for (let i = 0; i < 5; i++) {
+      const imgPath = `img/${actual.codigo}_00${i}.jpg`;
+      const img = document.createElement("img");
+      img.src = imgPath;
+      img.alt = actual.nombre + " " + i;
+      img.onerror = () => img.style.display = "none"; // Oculta si no existe
+      img.style.width = "60px";
+      img.style.marginRight = "5px";
+      img.style.borderRadius = "8px";
+      galeriaDiv.appendChild(img);
+    }
 
-document.getElementById("buscador").addEventListener("input", mostrarProductos);
+    modal.classList.remove("hidden");
+  }
 
-function abrirModal(producto) {
-    document.getElementById("modal").style.display = "block";
-    document.getElementById("modalNombre").innerText = producto.nombre;
-    document.getElementById("modalDescripcion").innerText = producto.descripcion;
+  // Cerrar modal
+  window.cerrarModal = function() {
+    modal.classList.add("hidden");
+  }
 
-    // Crear la galería de imágenes
-    let galeriaHTML = '';
-    producto.imagenes.forEach(imagen => {
-        galeriaHTML += `<img src="${imagen}" alt="${producto.nombre}" class="modal-imagen">`;
+  // Agregar al carrito
+  window.agregarCarrito = function() {
+    const cantidad = parseInt(cantidadInput.value);
+    if (!actual || !cantidad) return;
+
+    // Si ya existe en carrito, sumar cantidad
+    const existente = carrito.find(p => p.codigo === actual.codigo);
+    if (existente) {
+      existente.cantidad += cantidad;
+    } else {
+      carrito.push({...actual, cantidad});
+    }
+    actualizarCarrito();
+    cerrarModal();
+  }
+
+  // Actualizar panel carrito
+  function actualizarCarrito() {
+    listaCarrito.innerHTML = "";
+    let total = 0;
+    carrito.forEach(p => {
+      total += p.precio * p.cantidad;
+      listaCarrito.innerHTML += `<p>${p.nombre} x${p.cantidad} - $${p.precio*p.cantidad}</p>`;
     });
-    document.getElementById("modalGaleria").innerHTML = galeriaHTML;
+    totalSpan.innerText = "Total: $" + total;
+    contador.innerText = carrito.length;
+  }
 
-    // Resetear cantidad cuando se abre el modal
-    document.getElementById("cantidad").value = 1; // Valor inicial de la cantidad
+  // Mostrar/Ocultar carrito
+  window.toggleCarrito = function() {
+    panelCarrito.classList.toggle("hidden");
+  }
 
-    // Configurar WhatsApp (obtenemos el valor de la cantidad cuando se hace clic en el enlace)
-    document.getElementById("whatsappBtn").addEventListener("click", function() {
-        const cantidad = document.getElementById("cantidad").value || 1; // Obtenemos el valor de la cantidad
-        const mensaje = `Hola, quiero consultar por disponibilidad del producto: ${producto.nombre}. Cantidad: ${cantidad}`;
-        this.href = `https://wa.me/5493404409525?text=${encodeURIComponent(mensaje)}`; // Generamos el enlace con la cantidad
+  // Enviar pedido a WhatsApp
+  window.enviarWhatsApp = function() {
+    if (carrito.length === 0) return alert("El carrito está vacío");
+
+    let mensaje = "Hola! 👋 Quiero hacer el siguiente pedido:%0A%0A";
+    let total = 0;
+    carrito.forEach(p => {
+      const sub = p.precio * p.cantidad;
+      total += sub;
+      mensaje += `🧀 ${p.nombre}%0ACantidad: ${p.cantidad}%0ASubtotal: $${sub}%0A%0A`;
     });
-}
+    mensaje += `TOTAL: $${total}%0A%0ANombre:%0ADirección:%0AMétodo de pago:`;
 
-function cerrarModal() {
-    document.getElementById("modal").style.display = "none";
+    window.open(`https://wa.me/5493404409525?text=${mensaje}`, "_blank");
+  }
 
-}
+  // Filtrar por categoría
+  window.filtrar = function(categoria) {
+    if (categoria === "todos") mostrar(productos);
+    else mostrar(productos.filter(p => p.categoria === categoria));
+  }
 
+  // Buscador en tiempo real
+  searchInput.addEventListener("input", function() {
+    const texto = this.value.toLowerCase();
+    mostrar(productos.filter(p => p.nombre.toLowerCase().includes(texto)));
+  });
 
-
-
-
-
-
+});
