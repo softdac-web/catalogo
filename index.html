@@ -1,53 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alma Láctea</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alma Láctea</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <img src="alma-lactea.png" class="logo">
-  <input type="text" id="search" placeholder="Buscar producto...">
-</header>
+  <!-- Header con logo y buscador -->
+  <header>
+    <img src="alma-lactea.png" alt="Alma Láctea" class="logo">
+    <input type="text" id="search" placeholder="Buscar producto...">
+  </header>
 
-<nav>
-  <button onclick="filtrar('todos')">Todos</button>
-  <button onclick="filtrar('quesos')">Quesos</button>
-  <button onclick="filtrar('cremosos')">Cremosos</button>
-</nav>
+  <!-- Filtros por categoría -->
+  <nav>
+    <button onclick="filtrar('todos')">Todos</button>
+    <button onclick="filtrar('quesos')">Quesos</button>
+    <button onclick="filtrar('cremosos')">Cremosos</button>
+  </nav>
 
-<main id="productos" class="grid"></main>
+  <!-- Contenedor de productos -->
+  <main id="productos" class="grid"></main>
 
-<!-- Modal -->
-<div id="modal" class="modal hidden">
-  <div class="modal-content">
-    <span class="close" onclick="cerrarModal()">×</span>
-    <h2 id="modal-nombre"></h2>
-    <div id="modal-galeria"></div>
-    <p id="modal-descripcion"></p>
-    <p id="modal-precio"></p>
-    <p id="modal-stock"></p>
-    <input type="number" id="cantidad" min="1" value="1">
-    <button id="btn-agregar" onclick="agregarCarrito()">Agregar</button>
+  <!-- Modal de producto -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close" onclick="cerrarModal()">×</span>
+      <h2 id="modal-nombre"></h2>
+      <div id="modal-galeria" style="display:flex;margin:10px 0;"></div>
+      <p id="modal-descripcion"></p>
+      <p id="modal-precio"></p>
+      <p id="modal-stock"></p>
+      <input type="number" id="cantidad" min="1" value="1">
+      <button id="btn-agregar" onclick="agregarCarrito()">Agregar</button>
+    </div>
   </div>
-</div>
 
-<!-- Carrito flotante -->
-<div class="carrito-btn" onclick="toggleCarrito()">
-  🛒 <span id="contador">0</span>
-</div>
+  <!-- Botón flotante de carrito -->
+  <div class="carrito-btn" onclick="toggleCarrito()">
+    🛒 <span id="contador">0</span>
+  </div>
 
-<div id="panel-carrito" class="panel hidden">
-  <h3>Tu Pedido</h3>
-  <div id="lista-carrito"></div>
-  <h4 id="total"></h4>
-  <button onclick="enviarWhatsApp()">Finalizar Pedido</button>
-</div>
+  <!-- Panel lateral del carrito -->
+  <div id="panel-carrito" class="panel hidden">
+    <h3>Tu Pedido</h3>
+    <div id="lista-carrito"></div>
+    <h4 id="total"></h4>
+    <button onclick="enviarWhatsApp()">Finalizar Pedido</button>
+  </div>
 
-<script src="script.js"></script>
+  <!-- Script consolidado -->
+  <script src="script.js"></script>
 </body>
 </html>
-
