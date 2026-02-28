@@ -1,21 +1,34 @@
 [
   {
-    "nombre": "Leche Entera",
-    "categoria": "Leche",
-    "descripcion": "Leche entera pasteurizada de alta calidad.",
-    "imagenes": [
-      "imagenes/logo.jpg",
-      "imagenes/prueba_perfil.jpg",
-      "imagenes/logo.jpg"
-    ]
+    "codigo": "qa",
+    "nombre": "Queso Azul",
+    "categoria": "quesos",
+    "precio": 5800,
+    "descripcion": "Queso azul de sabor intenso y textura cremosa, ideal para tablas y salsas.",
+    "stock": true
   },
   {
-    "nombre": "Queso Cremoso",
-    "categoria": "Quesos",
-    "descripcion": "Queso cremoso ideal para sandwiches y pizzas.",
-    "imagenes": [
-      "imagenes/prueba_perfil.jpg",
-      "imagenes/logo.jpg"
-    ]
+    "codigo": "qc",
+    "nombre": "Queso Cremoso Tradicional",
+    "categoria": "cremosos",
+    "precio": 4200,
+    "descripcion": "Queso cremoso suave, perfecto para pizzas, tartas y sandwiches.",
+    "stock": true
+  },
+  {
+    "codigo": "qps",
+    "nombre": "Cremoso Por Salud",
+    "categoria": "cremosos",
+    "precio": 3900,
+    "descripcion": "Producto cremoso de textura uniforme y sabor delicado.",
+    "stock": true
+  },
+  {
+    "codigo": "qp",
+    "nombre": "Queso Provolone",
+    "categoria": "queso",
+    "precio": 4100,
+    "descripcion": "Versión más liviana, ideal para quienes buscan menor contenido graso.",
+    "stock": false
   }
 ]
