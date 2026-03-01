@@ -110,9 +110,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Mostrar/Ocultar carrito
   window.toggleCarrito = function() {
+    if (carrito.length === 0) {
+      alert("El carrito está vacío");
+      return;
+    }
     panelCarrito.classList.toggle("hidden");
   }
-
   // Enviar pedido a WhatsApp
   window.enviarWhatsApp = function() {
     if (carrito.length === 0) return alert("El carrito está vacío");
@@ -142,3 +145,4 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
 });
+
