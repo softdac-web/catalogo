@@ -175,3 +175,26 @@ nav button:hover {
   background: #ddd;
 }
 
+.badge {
+  background: gold;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  position: absolute;
+}
+
+.badge-oferta {
+  background: red;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  position: absolute;
+  right: 10px;
+}
+
+.precio-anterior {
+  text-decoration: line-through;
+  color: gray;
+  font-size: 14px;
+}
