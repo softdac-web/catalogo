@@ -5,7 +5,7 @@
     "categoria": "quesos",
     "precio": 5800,
     "precioAnterior": 6500,
-	  "destacado": true,
+	"destacado": true,
     "descripcion": "Queso azul de sabor intenso y textura cremosa, ideal para tablas y salsas.",
     "stock": true
   },
@@ -15,7 +15,7 @@
     "categoria": "cremosos",
     "precio": 4200,
     "precioAnterior": 6500,
-	  "destacado": true,
+	"destacado": false,
     "descripcion": "Queso cremoso suave, perfecto para pizzas, tartas y sandwiches.",
     "stock": true
   },
@@ -25,7 +25,7 @@
     "categoria": "cremosos",
     "precio": 3900,
     "precioAnterior": 6500,
-	  "destacado": true,
+    "destacado": true,
     "descripcion": "Producto cremoso de textura uniforme y sabor delicado.",
     "stock": true
   },
@@ -35,9 +35,10 @@
     "categoria": "queso",
     "precio": 4100,
     "precioAnterior": 6500,
-	  "destacado": true,
+	"destacado": false,
     "descripcion": "Versión más liviana, ideal para quienes buscan menor contenido graso.",
     "stock": false
   }
 ]
+
 
