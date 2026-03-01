@@ -137,6 +137,12 @@ document.addEventListener("DOMContentLoaded", function() {
   
     window.open(`https://wa.me/5493404409525?text=${mensaje}`, "_blank");
   }
+  // Vaciar carrito
+  window.vaciarCarrito = function() {
+    carrito = [];
+    actualizarCarrito();
+    panelCarrito.classList.add("hidden");
+  }
   // Filtrar por categoría
   window.filtrar = function(categoria) {
     if (categoria === "todos") mostrar(productos);
@@ -150,5 +156,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
 });
+
 
 
