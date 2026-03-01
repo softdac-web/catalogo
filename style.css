@@ -12,18 +12,26 @@ header {
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 15px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  flex-wrap: wrap;
+}
+
 .logo {
-  max-width: 180px;
-  margin-bottom: 10px;
+  max-width: 160px;
 }
 
 #search {
-  width: 80%;
-  max-width: 400px;
   padding: 10px;
   border-radius: 25px;
   border: 1px solid #ccc;
-  font-size: 14px;
+  min-width: 220px;
 }
 
 /* BOTONES FILTRO */
@@ -166,3 +174,4 @@ nav button:hover {
 .panel button:last-of-type {
   background: #ddd;
 }
+
