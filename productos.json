@@ -4,6 +4,8 @@
     "nombre": "Queso Azul",
     "categoria": "quesos",
     "precio": 5800,
+    "precioAnterior": 6500,
+	  "destacado": true,
     "descripcion": "Queso azul de sabor intenso y textura cremosa, ideal para tablas y salsas.",
     "stock": true
   },
@@ -12,6 +14,8 @@
     "nombre": "Queso Cremoso Tradicional",
     "categoria": "cremosos",
     "precio": 4200,
+    "precioAnterior": 6500,
+	  "destacado": true,
     "descripcion": "Queso cremoso suave, perfecto para pizzas, tartas y sandwiches.",
     "stock": true
   },
@@ -20,6 +24,8 @@
     "nombre": "Cremoso Por Salud",
     "categoria": "cremosos",
     "precio": 3900,
+    "precioAnterior": 6500,
+	  "destacado": true,
     "descripcion": "Producto cremoso de textura uniforme y sabor delicado.",
     "stock": true
   },
@@ -28,7 +34,10 @@
     "nombre": "Queso Provolone",
     "categoria": "queso",
     "precio": 4100,
+    "precioAnterior": 6500,
+	  "destacado": true,
     "descripcion": "Versión más liviana, ideal para quienes buscan menor contenido graso.",
     "stock": false
   }
 ]
+
