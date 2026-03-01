@@ -1,44 +1,42 @@
 [
   {
-    "codigo": "qa",
-    "nombre": "Queso Azul",
-    "categoria": "quesos",
-    "precio": 5800,
-    "precioAnterior": 6500,
+	"codigo": "qa",
+	"nombre": "Queso Azul",
+	"categoria": "quesos",
+	"precio": 5800,
+	"precioAnterior": 6500,
 	"destacado": true,
-    "descripcion": "Queso azul de sabor intenso y textura cremosa, ideal para tablas y salsas.",
-    "stock": true
+	"descripcion": "Queso azul de sabor intenso y textura cremosa, ideal para tablas y salsas.",
+	"stock": true
   },
   {
-    "codigo": "qc",
-    "nombre": "Queso Cremoso Tradicional",
-    "categoria": "cremosos",
-    "precio": 4200,
-    "precioAnterior": 6500,
+	"codigo": "qc",
+	"nombre": "Queso Cremoso Tradicional",
+	"categoria": "cremosos",
+	"precio": 4200,
+	"precioAnterior": 6500,
 	"destacado": false,
-    "descripcion": "Queso cremoso suave, perfecto para pizzas, tartas y sandwiches.",
-    "stock": true
+	"descripcion": "Queso cremoso suave, perfecto para pizzas, tartas y sandwiches.",
+	"stock": true
   },
   {
-    "codigo": "qps",
-    "nombre": "Cremoso Por Salud",
-    "categoria": "cremosos",
-    "precio": 3900,
-    "precioAnterior": 6500,
-    "destacado": true,
-    "descripcion": "Producto cremoso de textura uniforme y sabor delicado.",
-    "stock": true
+	"codigo": "qps",
+	"nombre": "Cremoso Por Salud",
+	"categoria": "cremosos",
+	"precio": 3900,
+	"precioAnterior": 6500,
+	"destacado": true,
+	"descripcion": "Producto cremoso de textura uniforme y sabor delicado.",
+	"stock": true
   },
   {
-    "codigo": "qp",
-    "nombre": "Queso Provolone",
-    "categoria": "queso",
-    "precio": 4100,
-    "precioAnterior": 6500,
+	"codigo": "qp",
+	"nombre": "Queso Provolone",
+	"categoria": "queso",
+	"precio": 4100,
+	"precioAnterior": 6500,
 	"destacado": false,
-    "descripcion": "Versión más liviana, ideal para quienes buscan menor contenido graso.",
-    "stock": false
+	"descripcion": "Versión más liviana, ideal para quienes buscan menor contenido graso.",
+	"stock": false
   }
 ]
-
-
