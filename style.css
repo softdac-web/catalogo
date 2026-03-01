@@ -71,6 +71,7 @@ nav button:hover {
   text-align: center;
   transition: 0.25s ease;
   cursor: pointer;
+  position: relative;
 }
 
 .card:hover {
@@ -198,3 +199,4 @@ nav button:hover {
   color: gray;
   font-size: 14px;
 }
+
