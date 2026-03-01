@@ -116,22 +116,27 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     panelCarrito.classList.toggle("hidden");
   }
+  
   // Enviar pedido a WhatsApp
   window.enviarWhatsApp = function() {
-    if (carrito.length === 0) return alert("El carrito está vacío");
-
+    if (carrito.length === 0) {
+      alert("No hay productos en el carrito");
+      return;
+    }
+  
     let mensaje = "Hola! 👋 Quiero hacer el siguiente pedido:%0A%0A";
     let total = 0;
+  
     carrito.forEach(p => {
       const sub = p.precio * p.cantidad;
       total += sub;
       mensaje += `🧀 ${p.nombre}%0ACantidad: ${p.cantidad}%0ASubtotal: $${sub}%0A%0A`;
     });
+  
     mensaje += `TOTAL: $${total}%0A%0ANombre:%0ADirección:%0AMétodo de pago:`;
-
+  
     window.open(`https://wa.me/5493404409525?text=${mensaje}`, "_blank");
   }
-
   // Filtrar por categoría
   window.filtrar = function(categoria) {
     if (categoria === "todos") mostrar(productos);
@@ -145,4 +150,5 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
 });
+
 
