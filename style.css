@@ -150,6 +150,10 @@ nav button:hover {
   transform: scale(1.2);
 }
 
+.hidden {
+  display: none !important;
+}
+
 /* IMAGEN PRINCIPAL */
 #modal-galeria img:first-child {
   width: 100%;
@@ -232,6 +236,7 @@ nav button:hover {
   color: gray;
   font-size: 14px;
 }
+
 
 
 
