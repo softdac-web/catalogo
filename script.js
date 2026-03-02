@@ -136,12 +136,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
   
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && modal.classList.contains("show")) {
-      cerrarModal();
-    }
-  });
-  
   /* =========================
      CARRITO
   ========================== */
@@ -266,6 +260,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && modal.classList.contains("show")) {
+    cerrarModal();
+  }
+});
 
 
 
