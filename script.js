@@ -118,12 +118,30 @@ document.addEventListener("DOMContentLoaded", function () {
     galeriaDiv.appendChild(thumbs);
 
     modal.classList.remove("hidden");
+    setTimeout(() => {
+      modal.classList.add("show");
+    }, 10);
   }
-
+  
   window.cerrarModal = function () {
-    modal.classList.add("hidden");
+    modal.classList.remove("show");
+    setTimeout(() => {
+      modal.classList.add("hidden");
+    }, 250);
   };
-
+  
+  modal.addEventListener("click", function (e) {
+    if (e.target === modal) {
+      cerrarModal();
+    }
+  });
+  
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && modal.classList.contains("show")) {
+      cerrarModal();
+    }
+  });
+  
   /* =========================
      CARRITO
   ========================== */
@@ -247,6 +265,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+
 
 
 
