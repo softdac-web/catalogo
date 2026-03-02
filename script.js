@@ -88,9 +88,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Imagen principal
     let imagenPrincipal = document.createElement("img");
     imagenPrincipal.src = `img/${actual.codigo}_000.jpg`;
-    imagenPrincipal.style.width = "100%";
-    imagenPrincipal.style.borderRadius = "12px";
-    imagenPrincipal.style.marginBottom = "10px";
     galeriaDiv.appendChild(imagenPrincipal);
 
     // Miniaturas
@@ -250,5 +247,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+
 
 
